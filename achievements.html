@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="todo-list">
+    <div class="side-bar">
+    <img src="photos/small-logo.png" alt="">
+    <h1 class="header">MENU</h1>
+    <ul class="menu">
+    <li><a href="goals.html" class="menu">Goals</a></li>
+    <li><a href="to-do.html" class="menu">To-do List</a></li>
+    <li><a href="landing-page.html" class="menu">Back</a></li>
+    </ul>
+  </div>
+    <div class="to-do">
+        <h1 class="header">ACHIEVEMENTS</h1>
+        <br>
+        <br>
+        <input type="text" id="new-achievement" placeholder="Enter achievement" class="input3">
+        <button id="add-achievement" class="button2">Add Achievement</button>
+        <p>back to <a href="profile.html">Home</a></p>
+        <p>Achievement 1 :<a href="book-summary.html"> "Born a Crime"</a></p>
+        <ul id="achievement-list"></ul>
+        </div>
+        </div>
+        <script>
+          const todoList = document.getElementById('achievement-list');
+          const newTaskInput = document.getElementById('new-achievement');
+          const addTaskButton = document.getElementById('add-achievement');
+          const tasks = []; // Array to store tasks
+          addTaskButton.addEventListener('click', function() {
+            const task = newTaskInput.value.trim(); // Get task text and trim whitespace
+            if (task) { // Check if task is not empty
+              tasks.push(task);
+              newTaskInput.value = ''; // Clear input field
+              renderTodoList();
+            }
+          });
+          function renderTodoList() {
+            todoList.innerHTML = ''; // Clear existing list items
+            tasks.forEach((task, index) => {
+              const listItem = document.createElement('li');
+              listItem.innerText = task;
+              const deleteButton = document.createElement('button');
+              deleteButton.innerText = 'Delete';
+              deleteButton.addEventListener('click', function() {
+                tasks.splice(index, 1); // Remove task from array
+                renderTodoList();
+              });
+              listItem.appendChild(deleteButton);
+              todoList.appendChild(listItem);
+            });
+          }
+        </script> 
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="todo-list">
+  <div class="side-bar">
+  <img src="photos/small-logo.png" alt="">
+  <h1>MENU</h1>
+  <ul class="menu">
+  <li><a href="achievements.html" class="menu">Achievements</a></li>
+  <li><a href="goals.html" class="menu">Goals</a></li>
+  <li><a href="to-do.html" class="menu">To-do List</a></li>
+  <li><a href="landing-page.html" class="menu">Back</a></li>
+  </ul>
+</div>
+    <div class="to-do">
+    <h1 class="header">To-Do List</h1>
+    <br>
+    <br>
+    <input type="text" id="new-task" placeholder="Enter a new task" class="input3">
+    <button id="add-task" class="button2">Add Task</button>
+    <p>My Task :<a href="https://docs.google.com/document/d/1X9s9YhBTLd2qTnYhCfIh1BE6Bq5s9ZkZraDJUbz18xI/edit">Summary</a></p>
+    
+
+    <ul id="todo-list"></ul>
+    </div>
+    </div>
+    <script>
+      const todoList = document.getElementById('todo-list');
+      const newTaskInput = document.getElementById('new-task');
+      const addTaskButton = document.getElementById('add-task');
+      const tasks = []; // Array to store tasks
+      addTaskButton.addEventListener('click', function() {
+        const task = newTaskInput.value.trim(); // Get task text and trim whitespace
+        if (task) { // Check if task is not empty
+          tasks.push(task);
+          newTaskInput.value = ''; // Clear input field
+          renderTodoList();
+        }
+      });
+      function renderTodoList() {
+        todoList.innerHTML = ''; // Clear existing list items
+        tasks.forEach((task, index) => {
+          const listItem = document.createElement('li');
+          listItem.innerText = task;
+          const deleteButton = document.createElement('button');
+          deleteButton.innerText = 'Delete';
+          deleteButton.addEventListener('click', function() {
+            tasks.splice(index, 1); // Remove task from array
+            renderTodoList();
+          });
+          listItem.appendChild(deleteButton);
+          todoList.appendChild(listItem);
+        });
+      }
+    </script> 
+</body>
+</html>
