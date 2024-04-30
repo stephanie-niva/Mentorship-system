@@ -184,10 +184,14 @@
     padding-bottom: 300px;
     border: solid 8px;
     border-color: rgb(17, 17, 76);
+    text-align: left;
+    
 
  }
  .text{
-   font-size:x-large ;
+   font-size:xx-large ;
+   text-align: left;
+   
  }
  /*to-do*/
  .todo-list{
@@ -305,6 +309,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: rgb(25, 25, 59);
       font-weight: 400;
+      text-align: left;
    }
   
    #form {
@@ -585,6 +590,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: rgb(25, 25, 59);
       font-weight: 400;
+      text-align: left;
       /*profile*/
    }
    #mentor-details{
@@ -673,6 +679,7 @@
     padding-bottom: 500px;
     border: solid 8px;
     border-color: rgb(17, 17, 76);
+    
 
  }
  
